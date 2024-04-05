@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="view_account_payment_invoice_form_inherited" model="ir.ui.view">
+            <field name="name">account.payment.form.inherited</field>
+            <field name="model">account.payment</field>
+            <field name="inherit_id" ref="account.view_account_payment_invoice_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='journal_id']" position="after" >
+                    <field name="user_id" invisible="1"/>
+                    <field name="journal_id_domain" invisible="1"/>
+                </xpath>
+                <xpath expr="//field[@name='journal_id']" position="attributes" >
+                    <attribute name="domain">journal_id_domain</attribute>
+                </xpath>
+            </field>
+        </record>
+</odoo>
